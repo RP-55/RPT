@@ -1,0 +1,12 @@
+{
+  "name": "rpt-dumpster-rental",
+  "version": "1.0.0",
+  "description": "Dumpster rental booking platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

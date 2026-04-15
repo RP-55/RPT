@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPT Dumpster Rental — Book a Dumpster Online</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="logo">RPT</span>
+          <span class="brand-name">Dumpster Rental</span>
+        </div>
+        <nav>
+          <a href="#sizes">Sizes</a>
+          <a href="#book">Book Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Roll-Off Dumpster Rentals, Delivered Fast</h1>
+        <p>Flat-rate pricing. Same-day or next-day delivery. Rent directly online in minutes.</p>
+        <a href="#book" class="btn btn-primary">Book a Dumpster</a>
+      </div>
+    </section>
+
+    <section id="sizes" class="sizes">
+      <div class="container">
+        <h2>Choose Your Size</h2>
+        <div id="dumpster-list" class="dumpster-grid"></div>
+      </div>
+    </section>
+
+    <section id="book" class="booking">
+      <div class="container">
+        <h2>Book Your Rental</h2>
+
+        <form id="booking-form" novalidate>
+          <div class="form-section">
+            <h3>1. Rental Details</h3>
+            <div class="grid-2">
+              <label>
+                Dumpster Size
+                <select name="sizeId" id="sizeId" required></select>
+              </label>
+              <label>
+                Rental Length (days)
+                <input type="number" name="rentalDays" id="rentalDays" min="1" max="60" value="7" required />
+              </label>
+              <label>
+                Delivery Date
+                <input type="date" name="deliveryDate" id="deliveryDate" required />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>2. Customer Info</h3>
+            <div class="grid-2">
+              <label>
+                Full Name
+                <input type="text" name="customerName" required autocomplete="name" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="customerEmail" required autocomplete="email" />
+              </label>
+              <label>
+                Phone
+                <input type="tel" name="customerPhone" required autocomplete="tel" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>3. Delivery Address</h3>
+            <div class="grid-2">
+              <label class="full">
+                Street Address
+                <input type="text" name="deliveryStreet" required autocomplete="shipping street-address" />
+              </label>
+              <label>
+                City
+                <input type="text" name="deliveryCity" required autocomplete="shipping address-level2" />
+              </label>
+              <label>
+                State
+                <input type="text" name="deliveryState" maxlength="2" placeholder="CA" required autocomplete="shipping address-level1" />
+              </label>
+              <label>
+                ZIP Code
+                <input type="text" name="deliveryZip" required autocomplete="shipping postal-code" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>4. Billing Address</h3>
+            <label class="checkbox">
+              <input type="checkbox" id="same-as-delivery" />
+              Same as delivery address
+            </label>
+            <div class="grid-2">
+              <label class="full">
+                Street Address
+                <input type="text" name="billingStreet" required autocomplete="billing street-address" />
+              </label>
+              <label>
+                City
+                <input type="text" name="billingCity" required autocomplete="billing address-level2" />
+              </label>
+              <label>
+                State
+                <input type="text" name="billingState" maxlength="2" placeholder="CA" required autocomplete="billing address-level1" />
+              </label>
+              <label>
+                ZIP Code
+                <input type="text" name="billingZip" required autocomplete="billing postal-code" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>5. Payment Information</h3>
+            <p class="note">Demo only — do not enter real card details.</p>
+            <div class="grid-2">
+              <label class="full">
+                Name on Card
+                <input type="text" name="nameOnCard" required autocomplete="cc-name" />
+              </label>
+              <label class="full">
+                Card Number
+                <input type="text" name="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242" required autocomplete="cc-number" />
+              </label>
+              <label>
+                Expiration (MM/YY)
+                <input type="text" name="cardExpiry" placeholder="12/28" required autocomplete="cc-exp" />
+              </label>
+              <label>
+                CVV
+                <input type="text" name="cardCvv" inputmode="numeric" placeholder="123" required autocomplete="cc-csc" />
+              </label>
+            </div>
+          </div>
+
+          <aside class="summary" id="summary">
+            <h3>Order Summary</h3>
+            <div id="summary-body">Select a size and rental length to see pricing.</div>
+          </aside>
+
+          <div id="form-errors" class="errors" hidden></div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Confirm &amp; Book</button>
+        </form>
+
+        <div id="confirmation" class="confirmation" hidden>
+          <h3>Booking Confirmed!</h3>
+          <p>Thank you for renting with RPT. A confirmation email has been sent.</p>
+          <dl>
+            <dt>Confirmation #</dt><dd id="conf-id"></dd>
+            <dt>Delivery Date</dt><dd id="conf-date"></dd>
+            <dt>Total Charged</dt><dd id="conf-total"></dd>
+            <dt>Card</dt><dd id="conf-card"></dd>
+          </dl>
+          <button type="button" class="btn" id="new-booking">Make Another Booking</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; RPT Dumpster Rental</p>
+      </div>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
